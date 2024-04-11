@@ -29,11 +29,13 @@
 
         <ul class="p-3 bg-gray-50">
           <% foundTask.forEach((data) =>{ %>
-          <li class="flex items-center justify-between p-2 px-3 my-3 text-xl font-bold text-gray-800 bg-gray-300 shadow-md rounded-2xl">
+          <li
+            class="flex items-center justify-between p-2 px-3 my-3 text-xl font-bold text-gray-800 bg-gray-300 shadow-md rounded-2xl"
+          >
             <%= data.taskName %>
             <div>
               <a
-                href="/task/<%= data._id%>"
+                href="/<%= data._id%>"
                 class="inline-block p-3 bg-blue-800 text-gray-50"
                 >Update</a
               >
