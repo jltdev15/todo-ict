@@ -24,9 +24,9 @@ exports.updateTask = async function (req, res) {
   console.log(req.body);
   try {
     const updatedData = await Task.findByIdAndUpdate(
-      req.body.id,
-      { taskName: req.body.taskName },
-      {
+      req.body.id, {
+        taskName: req.body.taskName
+      }, {
         new: true,
         runValidators: true,
       }
@@ -37,9 +37,7 @@ exports.updateTask = async function (req, res) {
     console.log(err);
   }
 };
-
 // Delete Task
-
 exports.deleteTask = async function (req, res) {
   console.log(req.body.id);
   try {

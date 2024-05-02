@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const port = process.env.PORT || 4000;
 const app = express();
 const taskRoutes = require("./routes/taskRoute");
+const userRoutes = require('./routes/userRoute')
 app.set("view engine", "ejs");
 app.use(morgan("dev"));
 app.use(express.json());
@@ -31,6 +32,7 @@ app.use(
 // });
 
 app.use("/", taskRoutes);
+app.use("/", userRoutes);
 
 mongoose
   .connect("mongodb://127.0.0.1:27017/todoDB", {})
