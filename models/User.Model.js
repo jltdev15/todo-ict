@@ -4,8 +4,14 @@ const mongoose = require("mongoose");
 
 // Create Structure or Schema
 const userSchema = new mongoose.Schema({
-    username: String,
-    password: String,
+  username: String,
+  password: String,
+  taskList: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Task",
+    },
+  ],
 });
 
 // Create model and assign schema

@@ -4,8 +4,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const port = process.env.PORT || 4000;
 const app = express();
+
 const taskRoutes = require("./routes/taskRoute");
-const userRoutes = require('./routes/userRoute')
+const userRoutes = require("./routes/userRoute");
+const cookieParser = require("cookie-parser");
+
 app.set("view engine", "ejs");
 app.use(morgan("dev"));
 app.use(express.json());
@@ -15,22 +18,7 @@ app.use(
     extended: true,
   })
 );
-
-// // Delete single task
-// app.delete("/tasks/:id", async (req, res) => {
-//   console.log(req.params.id);
-//   try {
-//     await Task.findByIdAndDelete({ _id: req.params.id });
-//     res.status(204).json({
-//       status: "Success",
-//     });
-//   } catch (err) {
-//     res.status(500).json({
-//       error: err,
-//     });
-//   }
-// });
-
+app.use(cookieParser());
 app.use("/", taskRoutes);
 app.use("/", userRoutes);
 

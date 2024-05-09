@@ -5,6 +5,14 @@ const mongoose = require("mongoose");
 // Create Structure or Schema
 const todoSchema = new mongoose.Schema({
   taskName: String,
+  isFinished: {
+    type: String,
+    default: false,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 // Create model and assign schema
